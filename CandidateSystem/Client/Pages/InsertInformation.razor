@@ -1,0 +1,20 @@
+﻿@using CandidateSystem.Client.Components.Base
+@page "/insert-information"
+<h3>InsertInformation</h3>
+<div class="page-container">
+    <EditForm Model="@candidate" OnValidSubmit=@InputSubmit>
+    <DataAnnotationsValidator />
+        <Base_InputText @bind-Value=candidate.CandidateName></Base_InputText>
+        <ValidationMessage For="() => candidate.CandidateName" />
+          <input type="submit" value="Send"/> 
+    </EditForm>
+    
+</div>
+
+@code {
+    public Candidate candidate = new Candidate();
+    public void InputSubmit()
+    {
+        Console.WriteLine("submited");
+    } 
+}
